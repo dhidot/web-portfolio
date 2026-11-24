@@ -4,7 +4,12 @@ const experiences = [
     company: "BCA Finance",
     role: "Full Stack Developer",
     description:
-      "Developing and maintaining enterprise applications across backend, frontend, database, and system integration layers, with a focus on reliable APIs, secure authentication, and maintainable application architecture.",
+      "Contributing across backend services, web interfaces, and system integrations for enterprise applications at BCA Finance.",
+    contributions: [
+      "Contributed to FINA across API development, system integrations, and customer-facing workflows.",
+      "Developed recruitment workflows, including candidate management and online assessments.",
+      "Implemented authentication and access-control improvements across application modules.",
+    ],
     technologies: [
       "Java",
       "Spring Boot",
@@ -21,7 +26,7 @@ export default function Experience() {
       id="experience"
       className="relative overflow-hidden border-t border-[var(--border)]"
     >
-      <div className="mx-auto max-w-7xl px-6 py-32 sm:py-40">
+      <div className="mx-auto max-w-7xl px-6 py-20 md:py-32 lg:py-40">
         {/* Section Header */}
         <div className="mb-20 flex items-center gap-4">
           <span className="font-mono text-[10px] tracking-[0.3em] text-[var(--accent)]">
@@ -45,7 +50,7 @@ export default function Experience() {
               {/* Left Meta */}
               <div className="relative">
                 <div className="sticky top-32">
-                  <p className="font-mono text-xs tracking-wider text-[var(--subtle)]">
+                  <p className="font-mono text-xs tracking-wider text-[var(--text-secondary)]">
                     {experience.period}
                   </p>
 
@@ -64,7 +69,7 @@ export default function Experience() {
                 {/* Company */}
                 <div className="flex flex-col gap-3 border-b border-[var(--border)] pb-8 sm:flex-row sm:items-end sm:justify-between">
                   <div>
-                    <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-[var(--subtle)]">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-[var(--text-secondary)]">
                       Company
                     </p>
 
@@ -85,51 +90,22 @@ export default function Experience() {
                   </p>
                 </div>
 
-                {/* Responsibilities */}
-                <div className="grid gap-8 border-t border-[var(--border)] py-10 sm:grid-cols-2">
+                {/* Contributions */}
+                <div className="border-t border-[var(--border)] py-10">
                   <div>
-                    <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-[var(--subtle)]">
-                      Focus
+                    <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-[var(--text-secondary)]">
+                      Contributions
                     </p>
 
-                    <ul className="mt-5 space-y-3 text-sm text-[var(--muted)]">
-                      <li className="flex gap-3">
-                        <span className="text-[var(--accent)]">→</span>
-                        Backend & API development
-                      </li>
-
-                      <li className="flex gap-3">
-                        <span className="text-[var(--accent)]">→</span>
-                        Frontend application development
-                      </li>
-
-                      <li className="flex gap-3">
-                        <span className="text-[var(--accent)]">→</span>
-                        System integration
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div>
-                    <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-[var(--subtle)]">
-                      Engineering
-                    </p>
-
-                    <ul className="mt-5 space-y-3 text-sm text-[var(--muted)]">
-                      <li className="flex gap-3">
-                        <span className="text-[var(--accent)]">→</span>
-                        Authentication & security
-                      </li>
-
-                      <li className="flex gap-3">
-                        <span className="text-[var(--accent)]">→</span>
-                        Database integration
-                      </li>
-
-                      <li className="flex gap-3">
-                        <span className="text-[var(--accent)]">→</span>
-                        Application maintainability
-                      </li>
+                    <ul className="mt-5 grid gap-4 text-sm leading-6 text-[var(--muted)] lg:grid-cols-3">
+                      {experience.contributions.map((contribution, index) => (
+                        <li key={contribution} className="flex gap-3">
+                          <span aria-hidden="true" className="font-mono text-[10px] text-[var(--accent)]">
+                            0{index + 1}
+                          </span>
+                          <span>{contribution}</span>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                 </div>
@@ -137,7 +113,7 @@ export default function Experience() {
                 {/* Technologies */}
                 <div className="border-t border-[var(--border)] pt-8">
                   <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
-                    <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-[var(--subtle)]">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-[var(--text-secondary)]">
                       Technologies
                     </p>
 
@@ -188,7 +164,7 @@ export default function Experience() {
 
         {/* Bottom Statement */}
         <div className="mt-24 flex flex-col gap-3 border-t border-[var(--border)] pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[var(--subtle)]">
+          <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[var(--text-secondary)]">
             Career
           </span>
 

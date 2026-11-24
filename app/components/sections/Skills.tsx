@@ -7,7 +7,7 @@ export default function Skills() {
       id="skills"
       className="relative overflow-hidden border-t border-[var(--border)]"
     >
-      <div className="mx-auto max-w-7xl px-6 py-32 sm:py-40">
+      <div className="mx-auto max-w-7xl px-6 py-20 md:py-32 lg:py-40">
         {/* Header */}
         <div className="mb-20 grid gap-8 lg:grid-cols-[1fr_0.6fr] lg:items-end">
           <div>
@@ -73,7 +73,7 @@ export default function Skills() {
                   {group.title}
                 </h3>
 
-                <span className="font-mono text-[10px] text-[var(--subtle)]">
+                <span className="font-mono text-[10px] text-[var(--text-secondary)]">
                   {String(group.skills.length).padStart(2, "0")}
                 </span>
               </div>
@@ -108,7 +108,7 @@ export default function Skills() {
                           rounded-lg
                           border
                           border-[var(--border)]
-                          text-[var(--subtle)]
+                          text-[var(--text-secondary)]
                           transition-all
                           duration-300
                           group-hover:border-[var(--accent)]
@@ -119,7 +119,7 @@ export default function Skills() {
                         className="
                           h-4
                           w-4
-                          text-[var(--subtle)]
+                          text-[var(--text-secondary)]
                           transition-all
                           duration-300
                           group-hover:scale-110
@@ -127,7 +127,7 @@ export default function Skills() {
                         "
                         style={{
                           "--skill-color": skill.color,
-                        } as React.CSSProperties}
+                        } as CSSProperties}
                         aria-hidden="true"
                       />
                       </div>
@@ -150,7 +150,7 @@ export default function Skills() {
                         className="
                           ml-auto
                           text-xs
-                          text-[var(--subtle)]
+                          text-[var(--text-secondary)]
                           opacity-0
                           transition-all
                           duration-300
@@ -171,7 +171,7 @@ export default function Skills() {
 
         {/* Bottom */}
         <div className="mt-10 flex flex-col gap-3 border-t border-[var(--border)] pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[var(--subtle)]">
+          <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[var(--text-secondary)]">
             Stack
           </span>
 

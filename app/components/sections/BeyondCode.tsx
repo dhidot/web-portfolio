@@ -43,7 +43,7 @@ export default function BeyondCode() {
         "
       />
 
-      <div className="mx-auto max-w-7xl px-6 py-32 sm:py-40">
+      <div className="mx-auto max-w-7xl px-6 py-20 md:py-32 lg:py-40">
         {/* Header */}
         <div className="mb-20 grid gap-8 lg:grid-cols-[1fr_0.6fr] lg:items-end">
           <div>
@@ -110,7 +110,7 @@ export default function BeyondCode() {
             >
               {/* Number */}
               <div className="flex items-center justify-between">
-                <span className="font-mono text-[10px] tracking-[0.2em] text-[var(--subtle)]">
+                <span className="font-mono text-[10px] tracking-[0.2em] text-[var(--text-secondary)]">
                   {hobby.number}
                 </span>
 
@@ -120,7 +120,7 @@ export default function BeyondCode() {
                     text-[10px]
                     uppercase
                     tracking-[0.2em]
-                    text-[var(--subtle)]
+                    text-[var(--text-secondary)]
                     transition-colors
                     duration-300
                     group-hover:text-[var(--accent)]
@@ -184,7 +184,7 @@ export default function BeyondCode() {
                     text-[9px]
                     uppercase
                     tracking-[0.25em]
-                    text-[var(--subtle)]
+                    text-[var(--text-secondary)]
                   "
                 >
                   {hobby.title}
@@ -217,7 +217,7 @@ export default function BeyondCode() {
                     text-[10px]
                     uppercase
                     tracking-[0.2em]
-                    text-[var(--subtle)]
+                    text-[var(--text-secondary)]
                   "
                 >
                   {hobby.detail}
@@ -255,7 +255,7 @@ export default function BeyondCode() {
           "
         >
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[var(--subtle)]">
+            <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[var(--text-secondary)]">
               Outside the terminal
             </span>
 

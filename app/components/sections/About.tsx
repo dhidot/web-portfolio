@@ -1,4 +1,5 @@
 import FadeIn from "../animations/FadeIn";
+import { profile } from "../../data/profile";
 
 const principles = [
   {
@@ -43,7 +44,7 @@ export default function About() {
         "
       />
 
-      <div className="mx-auto max-w-7xl px-6 py-32 sm:py-40">
+      <div className="mx-auto max-w-7xl px-6 py-20 md:py-32 lg:py-40">
         {/* Section Header */}
         <div className="mb-20 flex items-center gap-4">
           <span className="font-mono text-[10px] tracking-[0.3em] text-[var(--accent)]">
@@ -81,22 +82,16 @@ export default function About() {
 
             <div className="mt-10 max-w-2xl space-y-6 text-base leading-8 text-[var(--muted)] sm:text-lg">
               <p>
-                I&apos;m a Full Stack Developer with experience
-                building web applications and digital products
-                across frontend, backend, and database layers.
+                I&apos;m a {profile.role} at BCA Finance, working across backend
+                services, web interfaces, and system integrations for
+                enterprise applications.
               </p>
 
               <p>
-                My main focus is backend development with Java
-                and Spring Boot, while also working with Angular,
-                Laravel, SQL Server, and PostgreSQL.
-              </p>
-
-              <p>
-                I&apos;m particularly interested in software
-                architecture, API design, system integration,
-                security, and building applications that remain
-                maintainable as they grow.
+                I enjoy tracing how a feature works end to end—from API design
+                and authentication to data flow and the user experience. My
+                focus is building software that is understandable, reliable,
+                and practical to maintain.
               </p>
             </div>
           </div>
@@ -105,21 +100,20 @@ export default function About() {
           {/* Right */}
           <div className="lg:pt-4">
             <div className="mb-6 flex items-center justify-between">
-              <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[var(--subtle)]">
+              <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[var(--text-secondary)]">
                 Engineering Principles
               </span>
 
-              <span className="font-mono text-[10px] text-[var(--subtle)]">
+              <span className="font-mono text-[10px] text-[var(--text-secondary)]">
                 03
               </span>
             </div>
 
             <div className="border-t border-[var(--border)]">
               {principles.map((principle) => (
-                <div
+                <article
                   key={principle.number}
                   className="
-                    group
                     grid
                     grid-cols-[36px_1fr]
                     gap-5
@@ -128,26 +122,20 @@ export default function About() {
                     py-6
                   "
                 >
-                  <span className="font-mono text-[10px] text-[var(--subtle)]">
+                  <span className="font-mono text-[10px] text-[var(--text-secondary)]">
                     {principle.number}
                   </span>
 
                   <div>
-                    <div className="flex items-center justify-between gap-4">
-                      <h3 className="text-sm font-medium transition-colors duration-300 group-hover:text-[var(--accent)]">
-                        {principle.title}
-                      </h3>
-
-                      <span className="text-xs text-[var(--subtle)] transition-all duration-300 group-hover:translate-x-1 group-hover:text-[var(--accent)]">
-                        ↗
-                      </span>
-                    </div>
+                    <h3 className="text-sm font-medium">
+                      {principle.title}
+                    </h3>
 
                     <p className="mt-2 max-w-md text-sm leading-6 text-[var(--muted)]">
                       {principle.description}
                     </p>
                   </div>
-                </div>
+                </article>
               ))}
             </div>
 
@@ -159,11 +147,11 @@ export default function About() {
 
               <div>
                 <p className="text-sm font-medium">
-                  Chandra Nindhito
+                  {profile.name}
                 </p>
 
                 <p className="mt-1 text-xs text-[var(--muted)]">
-                  Full Stack Developer
+                  {profile.role}
                 </p>
               </div>
             </div>
@@ -173,7 +161,7 @@ export default function About() {
         {/* Bottom statement */}
         <div className="mt-24 border-t border-[var(--border)] pt-6">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--subtle)]">
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--text-secondary)]">
               Based in Indonesia
             </p>
 

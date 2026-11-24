@@ -10,16 +10,25 @@ import BeyondCode from "./components/sections/BeyondCode";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
+    <>
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
       <Navbar />
-      <Hero />
-      <About />
-      <Experience />
-      <Projects />
-      <Skills />
-      <BeyondCode />
-      <Contact />
+      <main
+        id="main-content"
+        tabIndex={-1}
+        className="min-h-screen bg-[var(--background)] pt-[var(--navbar-height)] text-[var(--foreground)]"
+      >
+        <Hero />
+        <About />
+        <Experience />
+        <Projects />
+        <Skills />
+        <BeyondCode />
+        <Contact />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }

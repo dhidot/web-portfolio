@@ -4,6 +4,8 @@
   --foreground: #1f2327;
 
   --muted: #4b5358;
+  --text-secondary: #4b5358;
+  /* Decorative details only; use --text-secondary for readable labels. */
   --subtle: #bfc3c5;
 
   --border: #c9c9c4;
@@ -15,6 +17,9 @@
   --metallic: #bfc3c5;
   --gunmetal: #4b5358;
   --caramel: #a8754f;
+
+  /* The navbar row is 76px at the default 16px root font size. */
+  --navbar-height: 4.75rem;
 }
 
 .dark {
@@ -22,6 +27,7 @@
   --foreground: #f5f5f2;
 
   --muted: #bfc3c5;
+  --text-secondary: #bfc3c5;
   --subtle: #4b5358;
 
   --border: #4b5358;
@@ -37,6 +43,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--navbar-height) + 1rem + 1px);
 }
 
 body {
@@ -45,14 +52,47 @@ body {
   font-family: var(--font-geist), sans-serif;
 }
 
-::selection {
-  background: var(--accent);
-  color: var(--background);
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+  }
 }
 
 ::selection {
   background: var(--foreground);
   color: var(--background);
+}
+
+.site-navbar {
+  background: var(--surface);
+}
+
+@supports (backdrop-filter: blur(12px)) or (-webkit-backdrop-filter: blur(12px)) {
+  .site-navbar {
+    background: color-mix(in srgb, var(--surface) 95%, transparent);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 1.5rem;
+  z-index: 60;
+  display: flex;
+  min-height: 2.75rem;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background: var(--foreground);
+  color: var(--background);
+  transform: translateY(calc(-100% - 1rem));
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }
 
 .hero-grid {

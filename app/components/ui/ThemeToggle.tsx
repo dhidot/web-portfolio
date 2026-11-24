@@ -1,22 +1,23 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
+
+const subscribe = () => () => {};
+const getClientSnapshot = () => true;
+const getServerSnapshot = () => false;
 
 export default function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  // Keep the server and initial hydration output identical before reading the theme.
+  const mounted = useSyncExternalStore(subscribe, getClientSnapshot, getServerSnapshot);
 
   if (!mounted) {
     return (
       <div
         className="
-          h-9
-          w-9
+          h-11
+          w-11
           rounded-full
           border
           border-[var(--border)]
@@ -38,19 +39,19 @@ export default function ThemeToggle() {
       }
       className="
         flex
-        h-9
-        w-9
+        h-11
+        w-11
         items-center
         justify-center
         rounded-full
         border
         border-[var(--border)]
-        text-[var(--muted)]
+        text-[var(--text-secondary)]
         transition
         hover:text-[var(--foreground)]
       "
     >
-      {isDark ? "☀" : "☾"}
+      <span aria-hidden="true">{isDark ? "☀" : "☾"}</span>
     </button>
   );
 }
