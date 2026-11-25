@@ -1,17 +1,12 @@
 const hobbies = [
   {
     number: "01",
-    title: "Guitar",
+    title: "Guitar & Bass",
     description:
-      "Playing guitar as a creative outlet outside of software.",
-    detail: "Strings · Melody · Expression",
-  },
-  {
-    number: "02",
-    title: "Bass",
-    description:
-      "Exploring grooves, rhythm, and the low end.",
-    detail: "Groove · Rhythm · Feel",
+      "Playing guitar and bass as a creative outlet outside of software.",
+    detail: "Strings · Melody · Groove",
+    href: "https://www.instagram.com/rizaldipardede/reel/DXpSH-DD-G_/",
+    embedUrl: "https://www.instagram.com/reel/DXpSH-DD-G_/embed/captioned/",
   },
 ];
 
@@ -91,128 +86,46 @@ export default function BeyondCode() {
         </div>
 
         {/* Hobbies */}
-        <div className="grid border-t border-[var(--border)] sm:grid-cols-2">
-          {hobbies.map((hobby, index) => (
+        <div className="grid border-t border-[var(--border)]">
+          {hobbies.map((hobby) => (
             <article
               key={hobby.title}
-              className={`
-                group
-                relative
-                py-10
-                transition-colors
-                duration-300
-                ${
-                  index === 0
-                    ? "sm:border-r sm:border-[var(--border)] sm:pr-12"
-                    : "sm:pl-12"
-                }
-              `}
+              className="group relative grid gap-10 py-10 lg:grid-cols-[0.75fr_0.25fr] lg:items-center"
             >
-              {/* Number */}
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-[10px] tracking-[0.2em] text-[var(--text-secondary)]">
-                  {hobby.number}
-                </span>
-
-                <span
-                  className="
-                    font-mono
-                    text-[10px]
-                    uppercase
-                    tracking-[0.2em]
-                    text-[var(--text-secondary)]
-                    transition-colors
-                    duration-300
-                    group-hover:text-[var(--accent)]
-                  "
-                >
-                  Personal
-                </span>
-              </div>
-
-              {/* Instrument Visual */}
-              <div className="relative mt-12 h-32 overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--surface)]">
-                {/* Strings */}
-                <div className="absolute inset-x-8 top-1/2 -translate-y-1/2 space-y-3 opacity-30">
-                  <span className="block h-px bg-[var(--muted)]" />
-                  <span className="block h-px bg-[var(--muted)]" />
-                  <span className="block h-px bg-[var(--muted)]" />
-                  <span className="block h-px bg-[var(--muted)]" />
+              {/* Content */}
+              <div className="lg:pr-10">
+                <div className="flex items-center gap-4">
+                  <span className="font-mono text-[10px] tracking-[0.2em] text-[var(--text-secondary)]">
+                    {hobby.number}
+                  </span>
+                  <span className="h-px w-8 bg-[var(--border)]" />
+                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--text-secondary)]">
+                    Personal
+                  </span>
                 </div>
 
-                {/* Instrument Shape */}
-                <div
-                  className="
-                    absolute
-                    left-8
-                    top-1/2
-                    h-14
-                    w-14
-                    -translate-y-1/2
-                    rounded-full
-                    border
-                    border-[var(--border)]
-                    transition-all
-                    duration-500
-                    group-hover:border-[var(--accent)]
-                    group-hover:scale-105
-                  "
-                />
-
-                <div
-                  className="
-                    absolute
-                    left-16
-                    top-1/2
-                    h-1
-                    w-32
-                    -translate-y-1/2
-                    bg-[var(--border)]
-                    transition-colors
-                    duration-300
-                    group-hover:bg-[var(--accent)]
-                  "
-                />
-
-                {/* Technical Label */}
-                <span
-                  className="
-                    absolute
-                    bottom-4
-                    right-5
-                    font-mono
-                    text-[9px]
-                    uppercase
-                    tracking-[0.25em]
-                    text-[var(--text-secondary)]
-                  "
-                >
-                  {hobby.title}
-                </span>
-              </div>
-
-              {/* Content */}
-              <div className="mt-8">
                 <h3
                   className="
-                    text-3xl
+                    mt-10
+                    text-4xl
                     font-medium
                     tracking-tight
                     transition-colors
                     duration-300
                     group-hover:text-[var(--accent)]
+                    sm:text-5xl
                   "
                 >
                   {hobby.title}
                 </h3>
 
-                <p className="mt-4 max-w-md text-sm leading-7 text-[var(--muted)]">
+                <p className="mt-5 max-w-lg text-base leading-8 text-[var(--muted)]">
                   {hobby.description}
                 </p>
 
                 <p
                   className="
-                    mt-6
+                    mt-8
                     font-mono
                     text-[10px]
                     uppercase
@@ -222,25 +135,51 @@ export default function BeyondCode() {
                 >
                   {hobby.detail}
                 </p>
+
+                <a
+                  href={hobby.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-8 inline-flex min-h-11 items-center gap-3 rounded-full border border-[var(--border)] px-5 text-sm font-medium text-[var(--muted)] transition-all hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                >
+                  Watch on Instagram
+                  <span aria-hidden="true">↗</span>
+                </a>
               </div>
 
-              {/* Hover Indicator */}
-              <span
-                className="
-                  absolute
-                  bottom-10
-                  right-0
-                  text-sm
-                  text-[var(--accent)]
-                  opacity-0
-                  transition-all
-                  duration-300
-                  group-hover:translate-x-1
-                  group-hover:opacity-100
-                "
-              >
-                ↗
-              </span>
+              {/* Instagram Reel */}
+              <div className="relative mx-auto w-full max-w-[390px] lg:justify-self-end">
+                <div
+                  aria-hidden="true"
+                  className="absolute -inset-5 rounded-[2.25rem] border border-[var(--accent)] opacity-10 transition-opacity duration-500 group-hover:opacity-25"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute -bottom-3 -left-3 h-20 w-20 rounded-full bg-[var(--accent)] opacity-[0.08] blur-2xl"
+                />
+
+                <div className="relative overflow-hidden rounded-[1.25rem] border border-[var(--border)] bg-[var(--surface)] p-2 shadow-[0_24px_70px_rgba(0,0,0,0.16)] transition-transform duration-700 group-hover:-translate-y-1">
+                  <div className="mb-2 flex h-9 items-center justify-between px-3">
+                    <div className="flex items-center gap-2">
+                      <span className="h-6 w-6 rounded-full border border-[var(--border)] bg-[var(--accent)]/15" />
+                      <span className="text-xs font-medium text-[var(--foreground)]">
+                        rizaldipardede
+                      </span>
+                    </div>
+                    <span className="text-sm tracking-widest text-[var(--muted)]">
+                      •••
+                    </span>
+                  </div>
+                  <iframe
+                    src={hobby.embedUrl}
+                    title="Guitar and bass reel from Instagram"
+                    loading="lazy"
+                    allow="autoplay; encrypted-media"
+                    allowFullScreen
+                    className="block h-[520px] w-full rounded-lg border-0 bg-black/5 sm:h-[620px]"
+                  />
+                </div>
+              </div>
             </article>
           ))}
         </div>

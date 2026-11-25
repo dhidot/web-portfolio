@@ -1,26 +1,9 @@
 import { existsSync } from "node:fs";
 import { join } from "node:path";
+import Image from "next/image";
 import Link from "next/link";
 import HeroAnimation from "../animations/HeroAnimation";
 import { profile } from "../../data/profile";
-
-const capabilities = [
-  {
-    number: "01",
-    title: "Backend systems",
-    description: "I build backend services and APIs for enterprise applications.",
-  },
-  {
-    number: "02",
-    title: "Authentication",
-    description: "I work on authentication and secure application access.",
-  },
-  {
-    number: "03",
-    title: "Product integration",
-    description: "I connect application workflows through APIs and system integrations.",
-  },
-];
 
 export default function Hero() {
   const [givenName, ...familyNames] = profile.name.split(" ");
@@ -122,45 +105,41 @@ export default function Hero() {
             <div aria-hidden="true" className="absolute -right-2 -top-10 hidden font-mono text-[10px] tracking-widest text-[var(--text-secondary)] lg:block">
               06°12&apos;S / 106°49&apos;E
             </div>
-            <div className="relative overflow-hidden rounded-2xl border border-[var(--border)] bg-[color-mix(in_srgb,var(--background)_88%,transparent)] p-6 shadow-2xl backdrop-blur-xl sm:p-8">
-              <div aria-hidden="true" className="pointer-events-none absolute -right-20 -top-20 h-48 w-48 rounded-full bg-[var(--accent)] opacity-[0.08] blur-3xl" />
-              <div className="relative flex flex-wrap items-start justify-between gap-4">
-                <div className="min-w-0">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-[var(--text-secondary)]">Developer Profile</p>
-                  <p className="mt-2 text-sm font-medium">{profile.name}</p>
-                  <p className="mt-1 text-xs text-[var(--muted)]">{profile.role}</p>
-                </div>
-                {profile.availability && (
-                  <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-[var(--border)] px-3 py-1.5">
-                    <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent)]" />
-                    <span className="text-[10px] font-medium tracking-wide text-[var(--muted)]">{profile.availability.label}</span>
-                  </div>
-                )}
-              </div>
+            <div className="relative mx-auto max-w-[440px]">
+              <div aria-hidden="true" className="absolute -inset-4 rounded-[2rem] border border-[var(--accent)] opacity-[0.12]" />
+              <div aria-hidden="true" className="absolute -bottom-5 -left-5 h-28 w-28 rounded-full bg-[var(--accent)] opacity-[0.08] blur-3xl" />
 
-              <ol className="relative mt-6 border-t border-[var(--border)]">
-                {capabilities.map((item, index) => (
-                  <li
-                    key={item.number}
-                    className={`flex gap-4 py-4 ${index !== capabilities.length - 1 ? "border-b border-[var(--border)]" : ""}`}
-                  >
-                    <span aria-hidden="true" className="pt-1 font-mono text-[10px] text-[var(--text-secondary)]">{item.number}</span>
-                    <div className="min-w-0 flex-1">
-                      <h2 className="text-sm font-medium">{item.title}</h2>
-                      <p className="mt-1 text-xs leading-6 text-[var(--muted)]">{item.description}</p>
+              <div className="relative overflow-hidden rounded-[1.75rem] border border-[var(--border)] bg-[var(--surface)] shadow-[0_30px_90px_rgba(0,0,0,0.16)]">
+                <div className="relative h-[440px] overflow-hidden bg-[var(--accent-secondary)] sm:h-[520px]">
+                  <Image
+                    src="/profile/chandra-nindhito.jpg"
+                    alt="Portrait of Chandra Nindhito"
+                    fill
+                    priority
+                    sizes="(max-width: 1023px) calc(100vw - 3rem), 440px"
+                    className="object-cover object-[center_28%]"
+                  />
+                  <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[var(--surface)] via-transparent to-transparent opacity-80" />
+                  <div aria-hidden="true" className="absolute inset-0 bg-[var(--accent)] opacity-[0.05] mix-blend-color" />
+
+                  {profile.availability && (
+                    <div className="absolute right-4 top-4 inline-flex items-center gap-2 rounded-full border border-white/40 bg-[var(--surface)]/90 px-3 py-2 shadow-lg backdrop-blur-md">
+                      <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[var(--accent)]" />
+                      <span className="text-[10px] font-medium tracking-wide text-[var(--foreground)]">{profile.availability.label}</span>
                     </div>
-                  </li>
-                ))}
-              </ol>
+                  )}
+                </div>
 
-              <div className="relative mt-4 border-t border-[var(--border)] pt-4">
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--text-secondary)]">Get in touch</p>
-                <a
-                  href={`mailto:${profile.email}`}
-                  className="inline-flex min-h-11 max-w-full items-center break-all font-mono text-[11px] text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
-                >
-                  {profile.email}
-                </a>
+                <div className="relative grid grid-cols-[1fr_auto] gap-4 border-t border-[var(--border)] px-5 py-5 sm:px-6">
+                  <div>
+                    <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--text-secondary)]">Developer Profile</p>
+                    <p className="mt-2 text-base font-semibold">{profile.name}</p>
+                    <p className="mt-1 text-xs text-[var(--muted)]">{profile.role} · {profile.specialization}</p>
+                  </div>
+                  <span aria-hidden="true" className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border)] font-mono text-[10px] text-[var(--accent)]">
+                    CN
+                  </span>
+                </div>
               </div>
             </div>
             <div aria-hidden="true" className="pointer-events-none absolute -bottom-5 -left-5 -z-10 h-24 w-24 rounded-xl border border-[var(--accent)] opacity-20" />
